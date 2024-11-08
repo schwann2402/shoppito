@@ -6,18 +6,19 @@ import logger from "morgan";
 import "dotenv/config";
 import indexRouter from "./routes/index.js";
 import usersRouter from "./routes/users.js";
+import productRouter from "./routes/productRoute.js";
 
 var app = express();
 connectDb();
 // view engine setup
+app.set("view engine", "ejs");
 
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/api/product", productRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -32,7 +33,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error");
+  res.send("Error occured");
 });
 
 export default app;
