@@ -15,4 +15,14 @@ const bestSellersFetch = async (req, res) => {
   res.json({ success: false, bestSellers });
 };
 
-export { listProducts, bestSellersFetch };
+const latestProducts = async (req, res) => {
+  try {
+    const products = await productModel.find({});
+    res.json({ success: true, products: products.slice(0, 10) });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
+
+export { listProducts, bestSellersFetch, latestProducts };
