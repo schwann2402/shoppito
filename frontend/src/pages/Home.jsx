@@ -1,5 +1,11 @@
+import Hero from "../components/Hero";
+
 const Home = () => {
-  return <div className="min-h-[200px]">Home</div>;
+  return (
+    <div>
+      <Hero />
+    </div>
+  );
 };
 
 export default Home;
