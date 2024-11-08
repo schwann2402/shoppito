@@ -5,8 +5,8 @@ import cookieParser from "cookie-parser";
 import logger from "morgan";
 import "dotenv/config";
 import productRouter from "./routes/productRoute.js";
-import subscriberRouter from "./routes/subscriberRoute.js";
 import cors from "cors";
+import subscriberRouter from "./routes/subscriberRoute.js";
 var app = express();
 connectDb();
 // view engine setup
