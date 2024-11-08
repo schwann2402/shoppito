@@ -7,6 +7,7 @@ import "dotenv/config";
 import indexRouter from "./routes/index.js";
 import usersRouter from "./routes/users.js";
 import productRouter from "./routes/productRoute.js";
+import cors from "cors";
 
 var app = express();
 connectDb();
@@ -15,6 +16,7 @@ app.set("view engine", "ejs");
 
 app.use(logger("dev"));
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
