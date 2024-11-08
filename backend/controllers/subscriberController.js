@@ -2,10 +2,8 @@ import subscriberModel from "../models/subscriberModel.js";
 
 const addSubscriber = async (req, res) => {
   try {
-    const { firstName, lastName, email } = req.body;
+    const { email } = req.body;
     const newSubscriber = await subscriberModel.create({
-      firstName,
-      lastName,
       email,
     });
     res.json({ success: true, newSubscriber });
