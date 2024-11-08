@@ -4,9 +4,8 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 import "dotenv/config";
-import indexRouter from "./routes/index.js";
-import usersRouter from "./routes/users.js";
 import productRouter from "./routes/productRoute.js";
+import subscriberRouter from "./routes/subscriberRoute.js";
 
 var app = express();
 connectDb();
@@ -19,6 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use("/api/product", productRouter);
+app.use("/api/subscriber", subscriberRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
