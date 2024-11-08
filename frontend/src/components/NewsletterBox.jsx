@@ -10,7 +10,9 @@ const NewsletterBox = () => {
   const onSubmitHandler = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post(backendUrl + "/api/subscriber/new");
+      const response = await axios.post(backendUrl + "/api/subscriber/new", {
+        email,
+      });
       if (response.data.success)
         toast.success("You have successfully subcribed to our newsletter");
     } catch (error) {
