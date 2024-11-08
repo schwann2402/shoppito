@@ -6,7 +6,7 @@ import logger from "morgan";
 import "dotenv/config";
 import productRouter from "./routes/productRoute.js";
 import subscriberRouter from "./routes/subscriberRoute.js";
-
+import cors from "cors";
 var app = express();
 connectDb();
 // view engine setup
@@ -14,6 +14,7 @@ app.set("view engine", "ejs");
 
 app.use(logger("dev"));
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
