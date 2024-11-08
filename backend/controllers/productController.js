@@ -10,4 +10,9 @@ const listProducts = async (req, res) => {
   }
 };
 
-export { listProducts };
+const bestSellersFetch = async (req, res) => {
+  const bestSellers = await productModel.find({ bestseller: true });
+  res.json({ success: false, bestSellers });
+};
+
+export { listProducts, bestSellersFetch };
